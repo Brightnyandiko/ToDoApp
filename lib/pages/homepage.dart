@@ -43,11 +43,12 @@ class _HomePageState extends State<HomePage> {
           return DialogBox(
             controller: _controller,
             onSave: saveNewTask,
-            onCancel: () => Navigator.of(context).pop,
+            onCancel: () => Navigator.of(context).pop(),
           );
         }
     );
   }
+
 // delete task
   void deleteTask(int index){
     setState(() {
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                 taskName: toDoList[index][0],
                 taskCompleted: toDoList[index][1],
                 onChanged: (value) => checkBoxChanged(value, index),
-                deleteFunction: (context) => deleteTask,
+                deleteFunction: (context) => deleteTask(index),
             );
           }
       ),
